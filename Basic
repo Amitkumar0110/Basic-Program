@@ -1,0 +1,232 @@
+        //    1.  C program to reverse a number
+
+#include <stdio.h>
+int main()
+{    
+	int n=321,reverse=0;  
+	printf("before reverse = %d",n);
+	while(n!=0){        
+		reverse = reverse*10 + n%10;        
+		n=n/10;    
+	}
+	printf("\nafter reverse = %d",reverse);    
+	return 0;
+} 
+
+
+    //    2. C Program to check a number is Armstrong or not
+    
+#include<stdio.h>
+#include<math.h>
+#include<conio.h>
+void main(){
+	int number,i=0,n,result=0,number1,temp;
+	printf("enter the number:");
+	scanf("%d",&number);
+	number1=number;
+	temp=number;
+	while(number!=0){
+		number=number/10;
+		i++;
+	}
+	while(number1!=0){
+		n=number1%10;
+		result=result+pow(n,i);
+		number1=number1/10;
+		}
+	if(temp==result)
+		printf("number is armstrong");
+		else
+		printf("not a armstrong");
+	getch();
+} 
+
+    //    3. C program to check given number is prime or not
+    
+#include<stdio.h>
+#include<conio.h>
+void main() {
+  int i = 0, n, temp = 0;
+  printf("Please give input a number: ");
+  scanf("%d", & n);
+  for (i = 2; i <= (n / 2); i++) {
+    if (n % i == 0) {
+      temp = 1;
+      break;
+    }
+  }
+  if (temp == 1)
+    printf("given number is not a prime number");
+  else
+    printf("given number is a prime number");
+  getch();
+}
+
+//    4.  C program to print Fibonacci series using Iterative methods
+
+#include <stdio.h>
+#include <conio.h> 
+int main()
+{
+  int n, first = 0, second = 1, result, i;
+  printf("Please give an input upto you want to print series :");
+  scanf("%d", &n);
+  printf("Fibonacci Series is: \n");
+  for (i = 0; i < n; i++)
+  {
+    if (i <= 1)
+      result = i;
+    else
+    {
+      result = first + second;
+      first = second;
+      second = result;
+    }
+    printf("%d \n", result);
+  } 
+  return 0;
+} 
+
+    //    5.  C program to print Fibonacci series program using recursive methods
+
+#include<stdio.h>
+#include<conio.h>
+int fibonacci(int);
+int main(){ 
+	int n, i; 
+	printf("Enter the number of element you want in series :"); 
+	scanf("%d",&n); 
+	printf("fibonacci series is : \n");
+	for(i=0;i<n;i++) { 
+		printf("%d \n",fibonacci(i));
+	}
+	getch();
+}
+int fibonacci(int i){ 
+	if(i==0) return 0; 
+	else if(i==1) return 1; 
+	else return (fibonacci(i-1)+fibonacci(i-2));
+} 
+
+    //  6.    C program for palindrome number using iterative method
+
+#include<stdio.h>
+#include<conio.h>
+void main(){
+     int n, reverse = 0, temp;
+     printf("enter the number :");
+     scanf("%d",&n);
+     temp = n;
+     while(temp!=0){        
+        reverse = reverse*10 + temp%10;        
+        temp=temp/10;    
+        }
+     if(reverse == n){
+        printf("The given number is a palindrome");
+     }
+     else{
+        printf("The given number is not a palindrome");
+     }
+     getch();
+ }
+ 
+  //  7.    C program for palindrome number using recursive method
+
+#include <stdio.h>
+#include <conio.h>
+int reverse(int num);
+int isPalindrome(int num);
+int main() {
+  int num;
+  printf("Enter a number to check Palindrome: ");
+  scanf("%d", & num);
+  if (isPalindrome(num) == 1) {
+    printf("The given number is a Palindrome");
+  } else {
+    printf("The given number is not a Palindrome");
+  }
+  return 0;
+}
+int isPalindrome(int num) {
+  if (num == reverse(num)) {
+    return 1;
+  }
+  return 0;
+}
+int reverse(int num) {
+  int rem;
+  static int sum = 0;
+  if (num != 0) {
+    rem = num % 10;
+    sum = sum * 10 + rem;
+    reverse(num / 10);
+  } else
+    return sum;
+  return sum;
+}
+
+
+    //    8.  C Program to find greatest of three numbers
+
+#include<stdio.h>
+#include<conio.h>
+void main(){
+	int a,b,c;
+	printf("enter the value of a: ");
+	scanf("%d",&a);
+	printf("enter the value of b: ");
+	scanf("%d",&b);
+	printf("enter the value of c: ");
+	scanf("%d",&c);
+	if(a>=b && a>=c)
+		printf(" a is greatest");
+	if(b>=a && b>=c)
+		printf(" b is greatest");
+	if(c>=a && c>=b)
+		printf("c is greatest");
+	getch();
+} 
+
+    //  9.  C Program to check given number representation is in binary or not
+
+#include<stdio.h>
+#include<conio.h>
+int main() {
+  int j, num;
+  printf("Please enter a number :");
+  scanf("%d", & num);
+  while (num > 0) {
+    j = num % 10;
+    if (j != 0 && j != 1) {
+      printf("Given number is not in binary");
+      break;
+    }
+    num = num / 10;
+    if (num == 0) {
+      printf("Given number is in binary");
+    }
+  }
+  getch();
+}
+
+    //  10. C Program to add the digits of a given number using recursive function
+
+#include<stdio.h>
+#include<conio.h>
+int sumOfDigits(int num) {
+  static int sum = 0;
+  int rem;
+  sum = sum + (num % 10);
+  rem = num / 10;
+  if (rem > 0) {
+    sumOfDigits(rem);
+  }
+  return sum;
+}
+int main() {
+  int j, num;
+  printf("Please enter a number :");
+  scanf("%d", & num);
+  printf("sum of digits of the number = %d ", sumOfDigits(num));
+  getch();
+}
